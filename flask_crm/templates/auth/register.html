@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block body %}
+    <!-- Main wrapper  -->
+    <div id="main-wrapper">
+
+        <div class="unix-login">
+            <div class="container-fluid">
+                <div class="row justify-content-center">
+                    <div class="col-lg-4">
+                        <div class="login-content card">
+                            <div class="login-form">
+                                <h4>Register</h4>
+                                <form method="post">
+                                    <div class="form-group">
+                                        <label>User Name</label>
+                                        <input id="username" name="username" type="email" class="form-control" placeholder="User Name">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>First Name</label>
+                                        <input id="first-name" name="first-name" type="email" class="form-control" placeholder="First Name">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Last Name</label>
+                                        <input id="last-name" name="last-name" type="email" class="form-control" placeholder="Last Name">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Password</label>
+                                        <input id="password" name="password" type="password" class="form-control" placeholder="Password">
+                                    </div>
+                                    <button type="submit" class="btn btn-primary btn-flat m-b-30 m-t-30">Register</button>
+                                    <div class="register-link m-t-15 text-center">
+                                        <p>Already have account ? <a href="#"> Sign in</a></p>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- End Wrapper -->
+{% endblock %}
