@@ -97,4 +97,4 @@ ENV/
 
 .DS_Store
 .idea
-!/flask_crm/templates/ElaAdmin/css/lib/
+!/flask_crm/static/js/lib/
