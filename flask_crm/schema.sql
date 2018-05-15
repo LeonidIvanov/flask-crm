@@ -1,12 +1,15 @@
 DROP TABLE IF EXISTS user;
-DROP TABLE IF EXISTS post;
+DROP TABLE IF EXISTS lead;
+DROP TABLE IF EXISTS product;
+DROP TABLE IF EXISTS order_status;
+DROP TABLE IF EXISTS 'order';
 
 CREATE TABLE user (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   username TEXT UNIQUE NOT NULL,
   password TEXT NOT NULL,
   first_name TEXT NOT NULL,
-  last_name TEXT NOT NULL,
+  last_name TEXT NOT NULL
 );
 
 CREATE TABLE lead (
@@ -14,13 +17,13 @@ CREATE TABLE lead (
   first_name TEXT NOT NULL,
   last_name TEXT NOT NULL,
   phone VARCHAR(16) NOT NULL,
-  email TEXT,
+  email TEXT
 );
 
 CREATE TABLE product (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   name TEXT NOT NULL,
-  price INTEGER NOT NULL,
+  price INTEGER NOT NULL
 );
 
 CREATE TABLE order_status (
@@ -39,5 +42,5 @@ CREATE TABLE 'order' (
   FOREIGN KEY (lead_id) REFERENCES lead (id),
   FOREIGN KEY (manager_id) REFERENCES user (id),
   FOREIGN KEY (product_id) REFERENCES product (id),
-  FOREIGN KEY (status_id) REFERENCES order_status (id),
+  FOREIGN KEY (status_id) REFERENCES order_status (id)
 );
