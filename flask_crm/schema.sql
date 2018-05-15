@@ -1,0 +1,43 @@
+DROP TABLE IF EXISTS user;
+DROP TABLE IF EXISTS post;
+
+CREATE TABLE user (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  username TEXT UNIQUE NOT NULL,
+  password TEXT NOT NULL,
+  first_name TEXT NOT NULL,
+  last_name TEXT NOT NULL,
+);
+
+CREATE TABLE lead (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  first_name TEXT NOT NULL,
+  last_name TEXT NOT NULL,
+  phone VARCHAR(16) NOT NULL,
+  email TEXT,
+);
+
+CREATE TABLE product (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  name TEXT NOT NULL,
+  price INTEGER NOT NULL,
+);
+
+CREATE TABLE order_status (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  name TEXT NOT NULL
+);
+
+CREATE TABLE 'order' (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  lead_id INTEGER NOT NULL,
+  manager_id INTEGER NOT NULL,
+  product_id INTEGER NOT NULL,
+  product_qty INTEGER NOT NULL,
+  status_id INTEGER NOT NULL,
+  comment TEXT NOT NULL,
+  FOREIGN KEY (lead_id) REFERENCES lead (id),
+  FOREIGN KEY (manager_id) REFERENCES user (id),
+  FOREIGN KEY (product_id) REFERENCES product (id),
+  FOREIGN KEY (status_id) REFERENCES order_status (id),
+);
