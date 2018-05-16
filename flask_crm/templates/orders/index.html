@@ -1,0 +1,9 @@
+{% extends 'base_with_header.html' %}
+{% block body %}
+    <h1>Orders</h1>
+    <ul>
+    {% for order in orders %}
+        <li>{{ order.id }}, {{ order.phone }}, {{ order.lead_name }}, {{ order.product_name }}, {{ order.price }}, {{ order.product_qty }}, {{ order.status }}</li>
+    {% endfor %}
+    </ul>
+{% endblock %}
