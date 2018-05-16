@@ -1,9 +1,70 @@
 {% extends 'base_with_header.html' %}
 {% block body %}
-    <h1>Orders</h1>
-    <ul>
-    {% for order in orders %}
-        <li>{{ order.id }}, {{ order.phone }}, {{ order.lead_name }}, {{ order.product_name }}, {{ order.price }}, {{ order.product_qty }}, {{ order.status }}</li>
-    {% endfor %}
-    </ul>
+       <!-- Page wrapper  -->
+        <div class="page-wrapper">
+            <!-- Bread crumb -->
+            <div class="row page-titles">
+                <div class="col-md-5 align-self-center">
+                    <h3 class="text-primary">Orders</h3> </div>
+                <div class="col-md-7 align-self-center">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item">Home</li>
+                    </ol>
+                </div>
+            </div>
+            <!-- End Bread crumb -->
+            <!-- Container fluid  -->
+            <div class="container-fluid">
+                <!-- Start Page Content -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-title">
+                                <h4>Latest Orders</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-hover ">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Phone</th>
+                                                <th>Name</th>
+                                                <th>Product</th>
+                                                <th>Price</th>
+                                                <th>Qty</th>
+                                                <th>Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        {% for order in orders %}
+                                            <tr>
+                                                <th scope="row">{{ order.id }}</th>
+                                                <td>{{ order.phone }}</td>
+                                                <td>{{ order.lead_name }}</td>
+                                                <td>{{ order.product_name }}</td>
+                                                <td class="color-primary">${{ order.price }}</td>
+                                                <td class="color-primary">{{ order.product_qty }}</td>
+                                                <td class="color-primary"><span class="badge badge-primary">{{ order.status }}</span></td>
+                                            </tr>
+                                        {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /# card -->
+                    </div>
+                    <!-- /# column -->
+                </div>
+                <!-- /# row -->
+                <!-- End PAge Content -->
+            </div>
+            <!-- End Container fluid  -->
+            <!-- footer -->
+            <footer class="footer"> © 2018 All rights reserved. Template designed by <a href="https://colorlib.com">Colorlib</a></footer>
+            <!-- End footer -->
+        </div>
+        <!-- End Page wrapper  -->
+
 {% endblock %}
